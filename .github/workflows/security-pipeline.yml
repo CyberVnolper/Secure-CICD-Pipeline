@@ -116,3 +116,44 @@ jobs:
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: 0
+
+  dast:
+    name: DAST - OWASP ZAP
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Build Docker image
+        run: docker build -t secure-cicd-app:${{ github.sha }} ./app
+
+      - name: Start application
+        run: |
+          docker run -d \
+            --name secure-cicd-app \
+            -p 3000:3000 \
+            secure-cicd-app:${{ github.sha }}
+
+      - name: Wait for application
+        run: |
+          for i in {1..30}; do
+            if curl --fail http://127.0.0.1:3000/api/health; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Application did not become ready"
+          docker logs secure-cicd-app
+          exit 1
+
+      - name: OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.15.0
+        with:
+          target: "http://127.0.0.1:3000"
+          allow_issue_writing: false
+          fail_action: false
+
+      - name: Stop application
+        if: always()
+        run: docker stop secure-cicd-app || true
