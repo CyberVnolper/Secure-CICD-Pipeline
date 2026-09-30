@@ -81,17 +81,17 @@ jobs:
       - name: Run npm audit
         run: npm audit --audit-level=high
 
-    secrets:
-      name: Secret Scanning - Gitleaks
-      runs-on: ubuntu-latest
+  secrets:
+    name: Secret Scanning - Gitleaks
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v6
-          with:
-            fetch-depth: 0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
-        - name: Run Gitleaks
-          uses: gitleaks/gitleaks-action@v2
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
