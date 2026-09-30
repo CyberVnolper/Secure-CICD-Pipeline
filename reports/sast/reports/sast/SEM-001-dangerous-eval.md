@@ -15,10 +15,9 @@
 * **Archivo:** `app/src/server.js`
 * **Línea:** 111
 * **Código detectado:**
-
-```javascript
-const result = eval(expression);
-```
+  ```javascript
+  const result = eval(expression);
+  ```
 
 ## 3. Descripción
 
@@ -103,4 +102,5 @@ El resultado del re-test se añadirá posteriormente a esta documentación.
 ## 10. Estado
 
 **Abierto — pendiente de corrección y re-test.**
+
 
