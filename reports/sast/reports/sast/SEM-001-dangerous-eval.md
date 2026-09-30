@@ -77,9 +77,8 @@ La evidencia del hallazgo se obtiene directamente del resultado del workflow de 
 
 Captura asociada:
 
-```text
-evidence/screenshots/01-semgrep-eval-blocked.png
-```
+![Evidencia de bloqueo por Semgrep](evidence/screenshots/01-semgrep-eval-blocked.png)
+
 
 ## 8. Acción correctiva
 
