@@ -41,21 +41,25 @@ jobs:
         run: npm test
 
 
-  sast:
-    name: SAST - Semgrep
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Run Semgrep
-        run: |
-          docker run --rm \
-            -v "${{ github.workspace }}:/src" \
-            semgrep/semgrep \
-            semgrep scan --config auto /src
   
+  sast:
+  name: SAST - Semgrep
+  runs-on: ubuntu-24.04
+
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6
+
+    - name: Run custom Semgrep rules
+      run: |
+        docker run --rm \
+        -v "${{ github.workspace }}:/src" \
+        semgrep/semgrep \
+        semgrep scan \
+        --config /src/security/semgrep/semgrep.yml \
+        --error \
+        /src/app/src
+ 
   sca:
     name: SCA - npm audit
     runs-on: ubuntu-latest

@@ -1,1 +1,18 @@
+rules:
+
+* id: javascript-dangerous-eval
+  message: "Use of eval() detected. Avoid executing dynamic input as JavaScript code."
+  severity: ERROR
+  languages:
+
+  * javascript
+  * typescript
+    metadata:
+    category: security
+    technology:
+
+    * javascript
+    * nodejs
+      cwe: "CWE-95"
+      pattern: eval(...)
 
