@@ -100,22 +100,36 @@ Además, se volverá a ejecutar el pipeline de GitHub Actions para verificar el 
 
 ## 9. Verificación posterior
 
-Pendiente de realizar.
+La dependencia vulnerable `lodash@4.17.20` fue actualizada a `lodash@4.18.1`.
 
-Una vez actualizada la dependencia, se volverán a ejecutar los tests y el análisis SCA.
+Tras la actualización se ejecutaron los tests de la aplicación:
 
-El resultado esperado será:
+```text
+Tests: 6
+Passed: 6
+Failed: 0
+```
+
+Posteriormente se ejecutó de nuevo el análisis de dependencias:
+
+```text
+npm audit
+```
+
+Resultado:
 
 ```text
 found 0 vulnerabilities
 ```
 
-La evidencia del re-test se añadirá posteriormente:
+La vulnerabilidad detectada inicialmente ya no aparece en el análisis.
+
+### Evidencias del re-test
 
 
-![Evidencia de bloqueo por Semgrep](../../evidence/screenshots/06-npm-audit-clean.png)
+![](../../evidence/screenshots/06-npm-audit-clean.png)
 
 ## 10. Estado
 
-**Abierto — dependencia vulnerable pendiente de actualización y re-test.**
+**Cerrado — dependencia actualizada y vulnerabilidad verificada como solucionada mediante re-test.**
 
