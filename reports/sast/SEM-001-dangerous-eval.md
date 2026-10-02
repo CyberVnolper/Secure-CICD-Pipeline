@@ -115,10 +115,10 @@ La regla `security.semgrep.javascript-dangerous-eval` ya no genera ningún halla
 
 ### Evidencias del re-test
 
-```text
-evidence/screenshots/02-pipeline-clean.png
-evidence/screenshots/03-semgrep-clean.png
-```
+
+(../../evidence/screenshots/02-pipeline-clean.png)
+(../../evidence/screenshots/03-semgrep-clean.png)
+
 
 ## 10. Estado
 
