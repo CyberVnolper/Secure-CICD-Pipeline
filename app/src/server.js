@@ -107,8 +107,41 @@ if (!expression) {
     });
 }
 
-// VULNERABILIDAD CONTROLADA - SOLO PARA EL LABORATORIO.
-const result = eval(expression);
+const match = expression.trim().match(
+    /^\s*(-?\d+(?:\.\d+)?)\s*([+\-*/])\s*(-?\d+(?:\.\d+)?)\s*$/
+);
+
+if (!match) {
+    return res.status(400).json({
+        error: "Only basic arithmetic expressions are allowed"
+    });
+}
+
+const left = Number(match[1]);
+const operator = match[2];
+const right = Number(match[3]);
+
+let result;
+
+switch (operator) {
+    case "+":
+        result = left + right;
+        break;
+    case "-":
+        result = left - right;
+        break;
+    case "*":
+        result = left * right;
+        break;
+    case "/":
+        if (right === 0) {
+            return res.status(400).json({
+                error: "Division by zero is not allowed"
+            });
+        }
+        result = left / right;
+        break;
+}
 
 return res.json({
     expression: expression,
