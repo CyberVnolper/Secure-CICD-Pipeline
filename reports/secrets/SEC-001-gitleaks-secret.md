@@ -70,23 +70,30 @@ Posteriormente se volverá a ejecutar Gitleaks para comprobar que el repositorio
 
 ## 9. Verificación posterior
 
-Pendiente de realizar.
-
-Después de eliminar el secreto se ejecutará nuevamente el workflow de GitHub Actions.
-
-Resultado esperado:
+Se eliminó del repositorio el archivo utilizado para la prueba controlada:
 
 ```text
-✅ Gitleaks
-✅ No leaks detected
-✅ Exit code 0
+security/gitleaks/test-secret.txt
 ```
 
-La evidencia del re-test se añadirá como:
+Posteriormente se ejecutó de nuevo el workflow de GitHub Actions sobre `main`.
+
+El control de Secret Scanning con Gitleaks finalizó correctamente y no detectó secretos.
+
+Resultado del re-test:
+
+```text
+Secrets - Gitleaks
+✅ Passed
+✅ No secrets detected
+✅ Process completed successfully
+```
+
+La evidencia del re-test se encuentra en:
 
 
 ![](../../evidence/screenshots/08-gitleaks-clean.png)
 
 ## 10. Estado
 
-**Abierto — secreto de laboratorio pendiente de eliminación y re-test.**
+**Cerrado — secreto sintético eliminado y re-test de Gitleaks completado correctamente.**
