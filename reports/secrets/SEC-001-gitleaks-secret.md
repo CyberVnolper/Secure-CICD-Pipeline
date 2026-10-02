@@ -53,9 +53,10 @@ security/gitleaks/test-secret.txt
 
 La evidencia corresponde al workflow de GitHub Actions en el que Gitleaks detectó el secreto.
 
-```text
-evidence/screenshots/07-gitleaks-secret-detected.png
-```
+
+
+![](../../evidence/screenshots/07-gitleaks-secret-detected.png)
+
 
 ## 8. Acción correctiva
 
@@ -83,9 +84,8 @@ Resultado esperado:
 
 La evidencia del re-test se añadirá como:
 
-```text
-evidence/screenshots/08-gitleaks-clean.png
-```
+
+![](../../evidence/screenshots/08-gitleaks-clean.png)
 
 ## 10. Estado
 
