@@ -88,16 +88,38 @@ La acción correctiva consistirá en eliminar el uso de `eval()` y sustituirlo p
 
 ## 9. Verificación posterior
 
-Una vez aplicada la corrección se volverá a ejecutar el pipeline para comprobar que:
+Se corrigió el uso de `eval()` en `app/src/server.js` mediante una implementación controlada para operaciones aritméticas básicas, eliminando la ejecución dinámica de código JavaScript.
+
+Antes de subir la corrección al repositorio se ejecutaron los tests de la aplicación:
 
 ```text
-Findings: 0
-Blocking findings: 0
-Process completed with exit code 0
+Tests: 6
+Passed: 6
+Failed: 0
 ```
 
-El resultado del re-test se añadirá posteriormente a esta documentación.
+Posteriormente se ejecutó de nuevo el workflow de GitHub Actions.
+
+Resultado del análisis SAST con Semgrep:
+
+```text
+Scan completed successfully.
+Findings: 0
+Blocking findings: 0
+Rules run: 1
+Targets scanned: 1
+Process completed with exit code 0.
+```
+
+La regla `security.semgrep.javascript-dangerous-eval` ya no genera ningún hallazgo.
+
+### Evidencias del re-test
+
+```text
+evidence/screenshots/02-pipeline-clean.png
+evidence/screenshots/03-semgrep-clean.png
+```
 
 ## 10. Estado
 
-**Abierto — pendiente de corrección y re-test.**
+**Cerrado — vulnerabilidad corregida y verificada mediante re-test.**
