@@ -79,9 +79,9 @@ La evidencia del hallazgo corresponde a la ejecución de `npm audit` realizada d
 
 Captura asociada:
 
-```text
-evidence/screenshots/05-npm-audit-vulnerable.png
-```
+
+![Evidencia de sca](../../evidence/screenshots/05-npm-audit-vulnerable.png)
+
 
 La captura debe mostrar el paquete afectado, la severidad `high` y el resultado de `1 high severity vulnerability`.
 
@@ -112,9 +112,8 @@ found 0 vulnerabilities
 
 La evidencia del re-test se añadirá posteriormente:
 
-```text
-evidence/screenshots/06-npm-audit-clean.png
-```
+
+![Evidencia de bloqueo por Semgrep](../../evidence/screenshots/06-npm-audit-clean.png)
 
 ## 10. Estado
 
