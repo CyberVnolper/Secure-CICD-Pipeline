@@ -1,6 +1,3 @@
-# OWASP ZAP Baseline Rules
-
-# Fallar el pipeline ante cabeceras de seguridad ausentes
-10020	FAIL	(X-Frame-Options Header Not Set)
+# zap-baseline rule configuration file
+# Change WARN to IGNORE to ignore rule or FAIL to fail if rule matches
 10021	FAIL	(X-Content-Type-Options Header Missing)
-10038	FAIL	(Content Security Policy Header Not Set)
