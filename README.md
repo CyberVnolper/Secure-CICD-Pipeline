@@ -239,17 +239,17 @@ Cerrar
 
 La metodología completa está documentada en:
 
-```text
-docs/vulnerability-management.md
-```
+
+[docs/vulnerability-management.md](docs/vulnerability-management.md)
+
 
 ## Evidencias
 
 Las capturas de los análisis y re-tests se almacenan en:
 
-```text
-evidence/screenshots/
-```
+
+[evidence/screenshots/](evidence/screenshots/)
+
 
 Las evidencias permiten demostrar tanto los hallazgos iniciales como el resultado posterior a las correcciones.
 
