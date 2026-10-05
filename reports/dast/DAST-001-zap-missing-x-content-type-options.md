@@ -66,9 +66,9 @@ en las respuestas HTTP.
 
 La evidencia corresponde a la ejecución del análisis DAST en GitHub Actions.
 
-```text
-evidence/screenshots/11-zap-finding.png
-```
+
+![](../../evidence/screenshots/11-zap-finding.png)
+
 
 El análisis muestra:
 
@@ -90,24 +90,55 @@ Posteriormente se volverá a ejecutar el análisis DAST para verificar que la al
 
 ## 9. Verificación posterior
 
-Pendiente de realizar.
+Se añadió la cabecera de seguridad `X-Content-Type-Options: nosniff` a las respuestas HTTP de la aplicación.
 
-Después de aplicar la corrección se ejecutará nuevamente OWASP ZAP.
+La modificación se realizó en `app/src/server.js` mediante un middleware específico:
 
-El resultado esperado será:
+```javascript
+app.use((req, res, next) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    next();
+});
+```
+
+Tras aplicar la corrección se ejecutaron nuevamente los tests de la aplicación:
+
+```text
+Tests: 6
+Passed: 6
+Failed: 0
+```
+
+Posteriormente se ejecutó de nuevo el análisis DAST mediante OWASP ZAP en GitHub Actions.
+
+Resultado del re-test:
 
 ```text
 FAIL-NEW: 0
 FAIL-INPROG: 0
 WARN-NEW: 0
+WARN-INPROG: 0
+INFO: 0
+IGNORE: 5
+PASS: 62
 ```
 
-La evidencia del re-test se añadirá como:
+La alerta:
 
 ```text
-evidence/screenshots/12-zap-clean.png
+X-Content-Type-Options Header Missing [10021]
 ```
+
+ya no aparece como `FAIL-NEW`.
+
+El job **DAST - OWASP ZAP** finalizó correctamente y el pipeline volvió a quedar en estado verde.
+
+### Evidencia del re-test
+
+
+![](../../evidence/screenshots/12-zap-clean.png)
+
 
 ## 10. Estado
 
-**Abierto — cabecera de seguridad pendiente de implementación y re-test.**
+**Cerrado — cabecera de seguridad implementada y vulnerabilidad verificada mediante re-test.**
