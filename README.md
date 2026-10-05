@@ -106,7 +106,7 @@ DAST — OWASP ZAP
 Security Result
 ```
 
-Los controles están integrados en `.github/workflows/security-pipeline.yml`.
+Los controles están integrados en [.github/workflows/security-pipeline.yml](.github/workflows/security-pipeline.yml)
 
 ## Controles implementados
 
