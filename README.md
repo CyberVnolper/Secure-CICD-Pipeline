@@ -136,10 +136,10 @@ app/src/server.js:111
 
 El pipeline fue bloqueado, el hallazgo se documentó y posteriormente se eliminó la ejecución dinámica de código.
 
-Informe:
 
 
-[](reports/sast/SEM-001-dangerous-eval.md)
+
+[Informe:](reports/sast/SEM-001-dangerous-eval.md)
 
 
 ### SCA-001 — Lodash
