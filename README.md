@@ -255,9 +255,9 @@ Las evidencias permiten demostrar tanto los hallazgos iniciales como el resultad
 
 ## Documentación
 
-- `docs/architecture.md` — arquitectura técnica del proyecto.
-- `docs/security-pipeline.md` — funcionamiento del pipeline y controles.
-- `docs/vulnerability-management.md` — proceso de gestión de vulnerabilidades.
+- [docs/architecture.md](docs/architecture.md) — arquitectura técnica del proyecto.
+- [docs/security-pipeline.md](docs/security-pipeline.md) — funcionamiento del pipeline y controles.
+- [docs/vulnerability-management.md](docs/vulnerability-management.md) — proceso de gestión de vulnerabilidades.
 
 ## Resultado
 
