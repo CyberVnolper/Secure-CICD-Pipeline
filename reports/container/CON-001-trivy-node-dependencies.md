@@ -97,9 +97,9 @@ La evidencia corresponde a la ejecución de **Container Scanning - Trivy** en Gi
 
 Captura asociada:
 
-```text
-evidence/screenshots/09-trivy-vulnerable.png
-```
+
+![](../../evidence/screenshots/09-trivy-vulnerable.png)
+
 
 La evidencia muestra:
 
@@ -120,30 +120,32 @@ La corrección deberá comprobar además que los tests de la aplicación siguen 
 
 ## 9. Verificación posterior
 
-Pendiente de realizar.
+Se modificó la imagen base del contenedor y se eliminó `npm` de la imagen final de runtime para reducir la superficie de ataque y evitar la inclusión de los componentes vulnerables detectados inicialmente.
 
-Después de actualizar las dependencias se deberá:
-
-```text
-npm test
-docker build
-Trivy scan
-```
-
-El resultado esperado será:
+La imagen Docker se reconstruyó correctamente y la aplicación fue validada localmente mediante el endpoint:
 
 ```text
-HIGH: 0
-CRITICAL: 0
-exit-code: 0
+/api/health
 ```
 
-La evidencia del re-test se añadirá posteriormente como:
+Posteriormente se ejecutó de nuevo el workflow de GitHub Actions con Trivy.
+
+Resultado del re-test:
 
 ```text
-evidence/screenshots/10-trivy-clean.png
+Container Scanning - Trivy
+✅ Passed
+✅ HIGH: 0
+✅ CRITICAL: 0
+✅ Process completed with exit code 0
 ```
+
+Las siete vulnerabilidades detectadas inicialmente ya no aparecen en el análisis de la imagen corregida.
+
+### Evidencia del re-test
+
+![](../../evidence/screenshots/10-trivy-clean.png)
 
 ## 10. Estado
 
-**Abierto — dependencias vulnerables pendientes de actualización y re-test.**
+**Cerrado — imagen Docker corregida y re-test de Trivy completado correctamente.**
