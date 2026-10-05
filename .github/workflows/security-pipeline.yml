@@ -164,11 +164,27 @@ jobs:
           cat security/zap/rules.tsv
 
       - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.15.0
-        with:
-          target: "http://127.0.0.1:3000"
-          allow_issue_writing: false
-          fail_action: false
+        run: |
+          docker pull ghcr.io/zaproxy/zaproxy:stable
+
+          set +e
+
+          docker run --rm \
+            --network=host \
+            -v "${{ github.workspace }}:/zap/wrk/:rw" \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap-baseline.py \
+            -t http://127.0.0.1:3000 \
+            -c /zap/wrk/security/zap/zap-config.md \
+            -J /zap/wrk/report_json.json \
+            -w /zap/wrk/report_md.md \
+            -r /zap/wrk/report_html.html
+
+          exit_code=$?
+
+          echo "ZAP exit code: $exit_code"
+
+          exit $exit_code
 
       - name: Stop application
         if: always()
