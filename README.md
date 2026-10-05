@@ -138,9 +138,9 @@ El pipeline fue bloqueado, el hallazgo se documentó y posteriormente se elimin�
 
 Informe:
 
-```text
-reports/sast/SEM-001-dangerous-eval.md
-```
+
+[](reports/sast/SEM-001-dangerous-eval.md)
+
 
 ### SCA-001 — Lodash
 
@@ -160,9 +160,9 @@ found 0 vulnerabilities
 
 Informe:
 
-```text
-reports/sca/SCA-001-lodash.md
-```
+
+[](reports/sca/SCA-001-lodash.md)
+
 
 ### SEC-001 — Secret Scanning
 
@@ -174,9 +174,9 @@ Posteriormente el archivo de prueba fue eliminado y se realizó un re-test limpi
 
 Informe:
 
-```text
-reports/secrets/SEC-001-gitleaks-secret.md
-```
+
+[](reports/secrets/SEC-001-gitleaks-secret.md)
+
 
 ### CON-001 — Container Scanning
 
@@ -195,9 +195,9 @@ El re-test terminó sin vulnerabilidades bloqueantes.
 
 Informe:
 
-```text
-reports/container/CON-001-trivy-node-dependencies.md
-```
+
+[](reports/container/CON-001-trivy-node-dependencies.md)
+
 
 ### DAST-001 — X-Content-Type-Options
 
@@ -213,9 +213,9 @@ Se añadió la cabecera de seguridad a la aplicación y posteriormente ZAP qued�
 
 Informe:
 
-```text
-reports/dast/DAST-001-zap-missing-x-content-type-options.md
-```
+
+[](reports/dast/DAST-001-zap-missing-x-content-type-options.md)
+
 
 ## Gestión de vulnerabilidades
 
