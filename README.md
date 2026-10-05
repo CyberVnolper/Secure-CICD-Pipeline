@@ -139,7 +139,7 @@ El pipeline fue bloqueado, el hallazgo se documentó y posteriormente se elimin�
 
 
 
-[Informe:](reports/sast/SEM-001-dangerous-eval.md)
+[Informe: SEM-001-dangerous-eval.md](reports/sast/SEM-001-dangerous-eval.md)
 
 
 ### SCA-001 — Lodash
@@ -158,10 +158,10 @@ La dependencia fue actualizada y el re-test terminó con:
 found 0 vulnerabilities
 ```
 
-Informe:
 
 
-[](reports/sca/SCA-001-lodash.md)
+
+[Informe:SCA-001-lodash.md](reports/sca/SCA-001-lodash.md)
 
 
 ### SEC-001 — Secret Scanning
@@ -172,10 +172,10 @@ Gitleaks detectó el valor y bloqueó el pipeline.
 
 Posteriormente el archivo de prueba fue eliminado y se realizó un re-test limpio.
 
-Informe:
 
 
-[](reports/secrets/SEC-001-gitleaks-secret.md)
+
+[Informe:SEC-001-gitleaks-secret.md](reports/secrets/SEC-001-gitleaks-secret.md)
 
 
 ### CON-001 — Container Scanning
@@ -193,10 +193,10 @@ Se modificó la imagen de runtime para reducir la superficie de ataque y elimina
 
 El re-test terminó sin vulnerabilidades bloqueantes.
 
-Informe:
 
 
-[](reports/container/CON-001-trivy-node-dependencies.md)
+
+[Informe:CON-001-trivy-node-dependencies.md](reports/container/CON-001-trivy-node-dependencies.md)
 
 
 ### DAST-001 — X-Content-Type-Options
@@ -211,10 +211,10 @@ La regla `10021` fue configurada como `FAIL`, provocando el bloqueo del pipeline
 
 Se añadió la cabecera de seguridad a la aplicación y posteriormente ZAP quedó limpio.
 
-Informe:
 
 
-[](reports/dast/DAST-001-zap-missing-x-content-type-options.md)
+
+[Informe:DAST-001-zap-missing-x-content-type-options.md](reports/dast/DAST-001-zap-missing-x-content-type-options.md)
 
 
 ## Gestión de vulnerabilidades
