@@ -1,10 +1,11 @@
-FROM node:24-alpine
+FROM node:24.21.0-alpine3.24
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev \
+    && rm -rf /usr/local/lib/node_modules/npm
 
 COPY src ./src
 
